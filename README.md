@@ -69,3 +69,9 @@
      ```
      ssh ec2-user@<bastion-public-dns-address>
      ```
+
+## Architecture
+
+![Architecture diagram](https://raw.githubusercontent.com/turbothinh/prisma2-graphql-aws-cdk/master/static/Architecture.png)
+
+Bastion is a great way to access resource inside VPC. I initially take that approach to access the database. However, I realized that it would add complexity and cost to the stack. Fortunately, AWS comes with Security Group, which allows you to define what IP can access your resource. I believe Security Group approach is way more handy and flexible. Therefore, feel free to remove the Bastion host from the stack. Remember to update your Database security group with your IP to enable access from host machine.
