@@ -1,0 +1,32 @@
+{
+  "name": "prisma2-graphql-aws-cdk-deploy",
+  "version": "1.0.0",
+  "bin": {
+    "aws-cdk": "bin/aws-cdk.js"
+  },
+  "scripts": {
+    "aws:cdk:deploy": "cdk deploy --profile $PROFILE",
+    "aws:policy:create": "aws iam create-policy --policy-name graphql-cdk-policy --policy-document file://./aws-policy.json --profile $PROFILE",
+    "aws:policy:update": "aws iam create-policy-version --policy-arn arn:aws:iam::545620289579:policy/graphql-cdk-policy --policy-document file://./aws-policy.json --set-as-default --profile $PROFILE",
+    "aws:policy:versions": "aws iam list-policy-versions --policy-arn arn:aws:iam::545620289579:policy/graphql-cdk-policy --profile $PROFILE",
+    "aws:policy:deleteVersion": "aws iam delete-policy-version --policy-arn arn:aws:iam::545620289579:policy/graphql-cdk-policy --profile $PROFILE --version-id"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.18.0",
+    "@types/jest": "^24.0.22",
+    "@types/node": "10.17.5",
+    "aws-cdk": "^1.18.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-ec2": "^1.18.0",
+    "@aws-cdk/aws-lambda": "^1.18.0",
+    "@aws-cdk/aws-rds": "^1.18.0",
+    "@aws-cdk/aws-apigateway": "^1.18.0",
+    "@aws-cdk/core": "^1.18.0",
+    "source-map-support": "^0.5.16"
+  }
+}

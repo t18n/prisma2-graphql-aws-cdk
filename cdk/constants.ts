@@ -1,0 +1,1 @@
+export const RESOURCE_PREFIX = 'GraphqlApiCdk';

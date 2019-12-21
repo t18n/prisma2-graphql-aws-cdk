@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "cdk/lambda/graphql-api/src",
+    "removeComments": true,
+    "sourceMap": false
+  },
+  "exclude": ["cdk", "**/*.d.ts", "**/seed.ts"]
+}

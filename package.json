@@ -1,0 +1,37 @@
+{
+  "name": "prisma2-graphql-aws-cdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Turbo",
+    "email": "turbothinh@gmail.com",
+    "url": "https://turbothinh.com"
+  },
+  "scripts": {
+    "env:dev": "cp .env.development .env",
+    "env:prod": "cp .env.production .env",
+    "clean-build": "rm -rf cdk/lambda/graphql-api",
+    "db:seed:dev": "yarn env:dev && ts-node prisma/seed",
+    "db:seed:prod": "yarn env:prod && ts-node prisma/seed",
+    "db:migrate": "yarn prisma2 lift up",
+    "generate:migration": "yarn prisma2 lift save --name",
+    "generate:photon:dev": "yarn env:dev &&yarn prisma2 generate",
+    "generate:photon:prod": "yarn env:prod && yarn prisma2 generate",
+    "start:dev": "yarn env:dev && nodemon --watch '*.ts' --exec 'ts-node' src/server.ts",
+    "start:prod": "yarn env:prod && nodemon --watch '*.ts' --exec 'ts-node' src/server.ts",
+    "build:cdk": "./scripts/cdk-build.sh"
+  },
+  "dependencies": {
+    "@prisma/photon": "^2.0.0-preview018.2",
+    "apollo-server-lambda": "^2.9.12",
+    "dotenv": "^8.2.0",
+    "prisma2": "^2.0.0-preview018.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2",
+    "apollo-server": "^2.9.12"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "@aws-cdk/core:enableStackNameDuplicates": "true",
+  "availability-zones:account=545620289579:region=eu-west-2": [
+    "eu-west-2a",
+    "eu-west-2b",
+    "eu-west-2c"
+  ]
+}

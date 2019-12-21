@@ -1,0 +1,39 @@
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+generator photon {
+  provider      = "photonjs"
+  binaryTargets = [env("BINARY_TARGET")]
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  birthday  DateTime?
+  firstName String?
+  products  Product[] @relation
+  orders    Order[]   @relation
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  price     Int
+  currency  String
+  status    Boolean
+  user      User?    @relation
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id           String   @id @default(cuid())
+  name         String
+  serialNumber String
+  user         User?    @relation
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
