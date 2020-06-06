@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@prisma/photon": "^2.0.0-preview018.2",
-    "apollo-server-lambda": "^2.9.12",
+    "apollo-server-lambda": "^2.14.2",
     "dotenv": "^8.2.0",
     "prisma2": "^2.0.0-preview018.2"
   },
